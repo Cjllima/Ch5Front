@@ -268,15 +268,40 @@ document.addEventListener("DOMContentLoaded", function () {
     texto.className = "mt-2 text-sm text-slate-500 dark:text-slate-400";
     texto.textContent = descricao;
 
-    const progressoTexto = document.createElement("p");
-    progressoTexto.className = "mt-5 text-xs text-slate-500 dark:text-slate-400";
-    progressoTexto.textContent = "Categoria: " + categoria;
+
+    const categoriaTexto = document.createElement("p");
+    categoriaTexto.className = "mt-2 text-xs text-slate-500 dark:text-slate-400";
+    categoriaTexto.textContent = "Categoria: " + categoria;
+
+    // Linha que mostra o percentual de progresso
+    const areaProgresso = document.createElement("div");
+    areaProgresso.className = "mt-5 flex items-center justify-between text-sm";
+
+    const rotuloProgresso = document.createElement("span");
+    rotuloProgresso.className = "texto-pequeno";
+    rotuloProgresso.textContent = "Progresso";
+
+    const porcentagemProgresso = document.createElement("strong");
+    porcentagemProgresso.textContent = "0%";
+
+    areaProgresso.append(rotuloProgresso, porcentagemProgresso);
+
+    // Barra de progresso, inicialmente vazia
+    const barraProgresso = document.createElement("div");
+    barraProgresso.className = "barra-progresso";
+
+    const preenchimentoProgresso = document.createElement("span");
+    preenchimentoProgresso.className = "bg-blue-600";
+    preenchimentoProgresso.style.width = "0%";
+
+    barraProgresso.append(preenchimentoProgresso);
+
 
     const rodape = document.createElement("p");
     rodape.className = "mt-4 border-t border-slate-200 pt-3 text-xs text-slate-500 dark:border-slate-700 dark:text-slate-400";
     rodape.textContent = "Responsável: " + responsavel + " · Prazo: " + prazo;
 
-    novoCartao.append(etiqueta, titulo, texto, progressoTexto, rodape);
+    novoCartao.append(etiqueta, titulo, texto, areaProgresso, categoriaTexto, barraProgresso, rodape, rodape);
     buscar("lista-projetos").prepend(novoCartao);
 
     buscar("total-ativos").textContent = Number(buscar("total-ativos").textContent) + 1;
@@ -307,7 +332,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   buscar("perfil").addEventListener("click", function () {
     menuUsuario.classList.add("hidden");
-    mostrarAviso("Perfil de Lucas Nohara.");
+    mostrarAviso("Perfil de Luís");
   });
 
   buscar("sair").addEventListener("click", function () {
