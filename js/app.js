@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function () {
     rodape.className = "mt-4 border-t border-slate-200 pt-3 text-xs text-slate-500 dark:border-slate-700 dark:text-slate-400";
     rodape.textContent = "Responsável: " + responsavel + " · Prazo: " + prazo;
 
-    novoCartao.append(etiqueta, titulo, texto, areaProgresso, categoriaTexto, barraProgresso, rodape, rodape);
+    novoCartao.append(etiqueta, titulo, texto, areaProgresso, categoriaTexto, barraProgresso, rodape);
     buscar("lista-projetos").prepend(novoCartao);
 
     buscar("total-ativos").textContent = Number(buscar("total-ativos").textContent) + 1;
