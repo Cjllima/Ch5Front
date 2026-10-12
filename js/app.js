@@ -1,11 +1,11 @@
-// JavaScript do TechFlow. Os dados ficam apenas na página, sem banco de dados.
+
 document.addEventListener("DOMContentLoaded", function () {
-  // Buscar um elemento pelo id fica mais curto do que repetir getElementById.
+
   function buscar(id) {
     return document.getElementById(id);
   }
 
-  // ---------- Menu lateral ----------
+
   const sidebar = buscar("sidebar");
   const fundoMenu = buscar("fundo-menu");
 
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ---------- Menus suspensos ----------
+
   const botaoTema = buscar("botao-tema");
   const menuTema = buscar("menu-tema");
   const botaoUsuario = buscar("botao-usuario");
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
     botaoUsuario.setAttribute("aria-expanded", "false");
   });
 
-  // ---------- Tema claro, escuro ou igual ao sistema ----------
+
   const preferenciaSistema = window.matchMedia("(prefers-color-scheme: dark)");
 
   function aplicarTema(tema) {
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // ---------- Pesquisa e filtros de projetos ----------
+
   const camposPesquisa = [buscar("pesquisa"), buscar("pesquisa-cards")].filter(Boolean);
   const botoesFiltro = document.querySelectorAll("[data-filtro]");
   let filtroAtual = "todos";
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ---------- Abrir e fechar o formulário ----------
+
   const modal = buscar("modal-projeto");
   const formulario = buscar("form-projeto");
   const camposFormulario = formulario.querySelectorAll(".campo-formulario");
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // ---------- Validar campos ----------
+
   function validarCampo(campo) {
     const valor = campo.value.trim();
     let valido = valor !== "";
@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // ---------- Criar um card novo na tela ----------
+
   formulario.addEventListener("submit", function (evento) {
     evento.preventDefault();
     let formularioValido = true;
@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function () {
     novoCartao.dataset.status = "andamento";
     novoCartao.dataset.nome = (nome + " " + descricao + " " + categoria).toLowerCase();
 
-    // textContent evita interpretar o que foi digitado como HTML.
+
     const etiqueta = document.createElement("span");
     etiqueta.className = "etiqueta bg-blue-100 text-blue-700 dark:bg-blue-500/20 dark:text-blue-300";
     etiqueta.textContent = "Em andamento · " + prioridade;
@@ -293,7 +293,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.setTimeout(fecharModal, 700);
   });
 
-  // ---------- Mensagem rápida na tela ----------
+
   let temporizadorAviso;
   function mostrarAviso(texto) {
     const aviso = buscar("aviso");
