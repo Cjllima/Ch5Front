@@ -15,7 +15,7 @@ Projeto do Checkpoint 5 – FrontEnd Design. O objetivo é montar um painel para
 
 ## Como executar
 1. Extraia a pasta do projeto.
-2. Abra `techflow-dashboard` no VS Code.
+2. Abra `Ch5Front` no VS Code.
 3. Abra o `index.html` com o Live Server.
 4. É preciso ter internet para carregar o Tailwind CSS via CDN.
 
