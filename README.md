@@ -38,7 +38,7 @@ Projeto do Checkpoint 5 – FrontEnd Design. O objetivo é montar um painel para
 - Dark mode: `dark:` com JavaScript e `localStorage`.
 
 ## GitHub
-Adicione aqui o link do repositório do grupo.
+https://github.com/Cjllima/Ch5Front
 
 ## Dificuldades encontradas
 - Fazer o layout se adaptar a diferentes tamanhos de tela.
