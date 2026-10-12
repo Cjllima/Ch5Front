@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechFlow</title>
+  <script>
+    tailwind = { darkMode: "class" };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="min-h-full bg-slate-100 text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+  <div id="fundo-menu" class="fixed inset-0 z-20 hidden bg-black/40 lg:hidden"></div>
+  <aside id="sidebar" class="fixed inset-y-0 left-0 z-30 flex w-64 -translate-x-full flex-col border-r border-slate-200 bg-white transition-transform duration-200 dark:border-slate-800 dark:bg-slate-900 lg:translate-x-0">
+    <div class="flex items-center justify-between border-b border-slate-200 px-5 py-5 dark:border-slate-800">
+      <a href="#inicio" class="text-xl font-bold text-blue-600">TechFlow</a>
+      <button id="fechar-menu" class="rounded p-2 hover:bg-slate-100 lg:hidden dark:hover:bg-slate-800" aria-label="Fechar menu">✕</button>
+    </div>
+
+    <nav class="flex-1 space-y-1 p-4" aria-label="Menu principal">
+      <a href="#inicio" class="link-menu selecionado">Dashboard</a>
+      <a href="#projetos" class="link-menu">Projetos</a>
+      <a href="#indicadores" class="link-menu">Indicadores</a>
+      <a href="#equipe" class="link-menu">Equipe</a>
+    </nav>
+
+    <div class="border-t border-slate-200 p-4 dark:border-slate-800">
+      <p class="text-sm font-semibold">Luís Roberto</p>
+      <p class="text-xs text-slate-500 dark:text-slate-400">Administrador</p>
+    </div>
+  </aside>
+  <main id="inicio" class="min-h-screen lg:pl-64">
+    <header class="sticky top-0 z-10 border-b border-slate-200 bg-white dark:border-slate-800 dark:bg-slate-900">
+      <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6 xl:px-8">
+        <div class="flex items-center gap-3">
+          <button id="abrir-menu" class="rounded-lg border border-slate-300 px-3 py-2 hover:bg-slate-100 lg:hidden dark:border-slate-700 dark:hover:bg-slate-800" aria-label="Abrir menu">☰</button>
+          <div>
+            <h1 class="text-lg font-bold">Visão geral</h1>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+          <label class="hidden md:block">
+            <span class="sr-only">Pesquisar projetos</span>
+            <input id="pesquisa" type="search" placeholder="Pesquisar projetos..." class="campo-pesquisa focus:border-blue-600 focus:ring-2 focus:ring-blue-200">
+          </label>
+          <div class="relative">
+            <button id="botao-tema" class="botao-secundario" aria-expanded="false">Tema ▾</button>
+            <div id="menu-tema" class="menu-dropdown hidden">
+              <button data-tema="light" class="opcao-tema">Light</button>
+              <button data-tema="dark" class="opcao-tema">Dark</button>
+              <button data-tema="system" class="opcao-tema">System</button>
+            </div>
+          </div>
+          <div class="relative">
+            <button id="botao-usuario" class="botao-secundario" aria-expanded="false">Luís ▾</button>
+            <div id="menu-usuario" class="menu-dropdown hidden">
+              <p class="border-b border-slate-200 px-3 py-2 text-xs text-slate-500 dark:border-slate-700 dark:text-slate-400">luis@gmail.com</p>
+              <button id="perfil" class="opcao-tema">Meu perfil</button>
+              <button id="sair" class="opcao-tema">Sair</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="mx-auto max-w-screen-2xl p-4 sm:p-6 xl:p-8">
+      <section class="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+        <div>
+          <h2 class="text-2xl font-bold">Olá, Luís!</h2>
+          <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Acompanhe os projetos e as tarefas da equipe.</p>
+        </div>
+        <button id="abrir-modal" class="botao-principal transition-all duration-200 ease-in-out active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-300">+ Novo projeto</button>
+      </section>
+      <section id="indicadores" class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <article class="cartao-indicador">
+          <p class="texto-indicador">Projetos ativos</p>
+          <p id="total-ativos" class="numero-indicador">4</p>
+          <p class="texto-pequeno">Projetos em andamento</p>
+        </article>
+        <article class="cartao-indicador">
+          <p class="texto-indicador">Projetos concluídos</p>
+          <p class="numero-indicador">2</p>
+          <p class="texto-pequeno">Neste trimestre</p>
+        </article>
+        <article class="cartao-indicador">
+          <p class="texto-indicador">Tarefas pendentes</p>
+          <p class="numero-indicador">0</p>
+          <p class="texto-pequeno">Ainda precisam ser feitas</p>
+        </article>
+        <article id="equipe" class="cartao-indicador">
+          <p class="texto-indicador">Equipes</p>
+          <p class="numero-indicador">4</p>
+          <p class="texto-pequeno">20 pessoas colaborando</p>
+        </article>
+      </section>
+      <section id="projetos" class="mt-8">
+        <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 class="text-xl font-bold">Projetos</h2>
+            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Lista dos projetos da equipe.</p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button data-filtro="todos" class="botao-filtro ativo">Todos</button>
+            <button data-filtro="andamento" class="botao-filtro">Em andamento</button>
+            <button data-filtro="concluido" class="botao-filtro">Concluídos</button>
+          </div>
+        </div>
+
+        <label class="mb-4 block md:hidden">
+          <span class="sr-only">Pesquisar projetos</span>
+          <input id="pesquisa-cards" type="search" placeholder="Pesquisar projetos..." class="campo-pesquisa w-full focus:border-blue-600 focus:ring-2 focus:ring-blue-200">
+        </label>
+
+        <div id="lista-projetos" class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-6">
+          <article class="cartao-projeto group transition-all duration-200 ease-in-out sm:col-span-2 2xl:col-span-2" data-status="andamento" data-nome="site institucional site">
+            <div class="flex items-start justify-between gap-2">
+              <div><span class="etiqueta bg-blue-100 text-blue-700 dark:bg-blue-500/20 dark:text-blue-300">Em andamento</span><h3 class="mt-3 text-lg font-bold group-hover:text-blue-600 dark:group-hover:text-blue-300">Site institucional</h3></div>
+              <button class="opcoes-projeto" aria-label="Opções do projeto">•••</button>
+            </div>
+            <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Atualização das páginas principais da empresa.</p>
+            <div class="mt-5 flex items-center justify-between text-sm"><span class="texto-pequeno">Progresso</span><strong>70%</strong></div>
+            <div class="barra-progresso"><span class="bg-blue-600" style="width:70%"></span></div>
+            <div class="mt-4 flex justify-between border-t border-slate-200 pt-3 text-xs text-slate-500 dark:border-slate-700 dark:text-slate-400"><span>Responsável: Ana</span><span>18 out.</span></div>
+          </article>
+
+          <article class="cartao-projeto group transition-all duration-200 ease-in-out lg:row-span-2" data-status="andamento" data-nome="aplicativo mobile app celular">
+            <div class="flex items-start justify-between gap-2"><span class="etiqueta bg-purple-100 text-purple-700 dark:bg-purple-500/20 dark:text-purple-300">Em andamento</span><button class="opcoes-projeto" aria-label="Opções do projeto">•••</button></div>
+            <h3 class="mt-3 text-lg font-bold group-hover:text-blue-600 dark:group-hover:text-blue-300">Aplicativo mobile</h3>
+            <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Aplicativo para os clientes acompanharem seus pedidos.</p>
+            <div class="mt-5 flex items-center justify-between text-sm"><span class="texto-pequeno">Progresso</span><strong>45%</strong></div>
+            <div class="barra-progresso"><span class="bg-purple-600" style="width:45%"></span></div>
+            <div class="mt-4 border-t border-slate-200 pt-3 text-xs text-slate-500 dark:border-slate-700 dark:text-slate-400"><p>Responsável: Pedro</p><p class="mt-2">Prazo: 22 out.</p></div>
+          </article>
+
+          <article class="cartao-projeto group transition-all duration-200 ease-in-out" data-status="andamento" data-nome="sistema interno sistema">
+            <div class="flex items-start justify-between gap-2"><span class="etiqueta bg-amber-100 text-amber-700 dark:bg-amber-500/20 dark:text-amber-300">Em andamento</span><button class="opcoes-projeto" aria-label="Opções do projeto">•••</button></div>
+            <h3 class="mt-3 text-lg font-bold group-hover:text-blue-600 dark:group-hover:text-blue-300">Sistema interno</h3>
+            <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Organização de dados e processos da equipe.</p>
+            <div class="mt-5 flex items-center justify-between text-sm"><span class="texto-pequeno">Progresso</span><strong>35%</strong></div>
+            <div class="barra-progresso"><span class="bg-amber-500" style="width:35%"></span></div>
+            <div class="mt-4 border-t border-slate-200 pt-3 text-xs text-slate-500 dark:border-slate-700 dark:text-slate-400">Responsável: Laura</div>
+          </article>
+
+          <article class="cartao-projeto group transition-all duration-200 ease-in-out" data-status="concluido" data-nome="portal do cliente portal">
+            <div class="flex items-start justify-between gap-2"><span class="etiqueta bg-green-100 text-green-700 dark:bg-green-500/20 dark:text-green-300">Concluído</span><button class="opcoes-projeto" aria-label="Opções do projeto">•••</button></div>
+            <h3 class="mt-3 text-lg font-bold group-hover:text-blue-600 dark:group-hover:text-blue-300">Portal do cliente</h3>
+            <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Área para dúvidas e acompanhamento de pedidos.</p>
+            <div class="mt-5 flex items-center justify-between text-sm"><span class="texto-pequeno">Progresso</span><strong>100%</strong></div>
+            <div class="barra-progresso"><span class="bg-green-600" style="width:100%"></span></div>
+            <div class="mt-4 border-t border-slate-200 pt-3 text-xs text-slate-500 dark:border-slate-700 dark:text-slate-400">Responsável: Rafael</div>
+          </article>
+
+          <article class="cartao-projeto group transition-all duration-200 ease-in-out xl:col-span-2" data-status="andamento" data-nome="design system visual identidade">
+            <div class="flex items-start justify-between gap-2"><span class="etiqueta bg-pink-100 text-pink-700 dark:bg-pink-500/20 dark:text-pink-300">Em andamento</span><button class="opcoes-projeto" aria-label="Opções do projeto">•••</button></div>
+            <h3 class="mt-3 text-lg font-bold group-hover:text-blue-600 dark:group-hover:text-blue-300">Identidade visual</h3>
+            <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Padronização das cores e dos componentes das páginas.</p>
+            <div class="mt-5 flex items-center justify-between text-sm"><span class="texto-pequeno">Progresso</span><strong>60%</strong></div>
+            <div class="barra-progresso"><span class="bg-pink-600" style="width:60%"></span></div>
+            <div class="mt-4 border-t border-slate-200 pt-3 text-xs text-slate-500 dark:border-slate-700 dark:text-slate-400">Responsável: Marina</div>
+          </article>
+
+          <article class="cartao-projeto group transition-all duration-200 ease-in-out" data-status="concluido" data-nome="relatórios relatórios dados">
+            <div class="flex items-start justify-between gap-2"><span class="etiqueta bg-green-100 text-green-700 dark:bg-green-500/20 dark:text-green-300">Concluído</span><button class="opcoes-projeto" aria-label="Opções do projeto">•••</button></div>
+            <h3 class="mt-3 text-lg font-bold group-hover:text-blue-600 dark:group-hover:text-blue-300">Relatórios</h3>
+            <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Relatórios mensais para acompanhamento da gestão.</p>
+            <div class="mt-5 flex items-center justify-between text-sm"><span class="texto-pequeno">Progresso</span><strong>100%</strong></div>
+            <div class="barra-progresso"><span class="bg-green-600" style="width:100%"></span></div>
+            <div class="mt-4 border-t border-slate-200 pt-3 text-xs text-slate-500 dark:border-slate-700 dark:text-slate-400">Responsável: João</div>
+          </article>
+        </div>
+        <p id="nenhum-projeto" class="mt-4 hidden rounded border border-slate-300 p-4 text-sm dark:border-slate-700">Nenhum projeto encontrado.</p>
+      </section>
+
+      <footer class="mt-10 border-t border-slate-200 py-5 text-sm text-slate-500 dark:border-slate-800 dark:text-slate-400">
+        TechFlow Dashboard
+      </footer>
+    </div>
+  </main>
+  <div id="modal-projeto" class="fixed inset-0 z-40 hidden items-center justify-center overflow-y-auto bg-black/50 p-4" role="dialog" aria-modal="true" aria-labelledby="titulo-modal">
+    <div class="w-full max-w-xl rounded-xl bg-white p-5 shadow-lg sm:p-6 dark:bg-slate-900">
+      <div class="mb-5 flex items-start justify-between gap-3">
+        <div><h2 id="titulo-modal" class="text-xl font-bold">Novo projeto</h2><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Preencha os dados do projeto.</p></div>
+        <button id="fechar-modal" class="rounded p-2 hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Fechar formulário">✕</button>
+      </div>
+
+      <form id="form-projeto" novalidate>
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div class="sm:col-span-2">
+            <label for="nome-projeto" class="rotulo">Nome do projeto</label>
+            <input id="nome-projeto" name="nome" class="campo-formulario" type="text" required minlength="3" placeholder="Ex.: Site da empresa">
+            <p class="mensagem-erro hidden">Digite pelo menos 3 caracteres.</p>
+          </div>
+          <div>
+            <label for="responsavel" class="rotulo">Responsável</label>
+            <input id="responsavel" name="responsavel" class="campo-formulario" type="text" required placeholder="Nome">
+            <p class="mensagem-erro hidden">Informe o responsável.</p>
+          </div>
+          <div>
+            <label for="categoria" class="rotulo">Categoria</label>
+            <select id="categoria" name="categoria" class="campo-formulario" required>
+              <option value="">Escolha uma opção</option><option>Desenvolvimento</option><option>Design</option><option>Marketing</option><option>Dados</option><option>Operações</option>
+            </select>
+            <p class="mensagem-erro hidden">Escolha uma categoria.</p>
+          </div>
+          <div>
+            <label for="prioridade" class="rotulo">Prioridade</label>
+            <select id="prioridade" name="prioridade" class="campo-formulario" required>
+              <option value="">Escolha uma opção</option><option>Baixa</option><option>Média</option><option>Alta</option>
+            </select>
+            <p class="mensagem-erro hidden">Escolha a prioridade.</p>
+          </div>
+          <div>
+            <label for="prazo" class="rotulo">Prazo</label>
+            <input id="prazo" name="prazo" class="campo-formulario" type="date" required>
+            <p class="mensagem-erro hidden">Escolha uma data válida.</p>
+          </div>
+          <div class="sm:col-span-2">
+            <label for="descricao" class="rotulo">Descrição</label>
+            <textarea id="descricao" name="descricao" class="campo-formulario" rows="3" required minlength="10" placeholder="Explique brevemente o objetivo do projeto."></textarea>
+            <p class="mensagem-erro hidden">A descrição deve ter pelo menos 10 caracteres.</p>
+          </div>
+        </div>
+        <p id="mensagem-formulario" class="mt-4 hidden rounded p-3 text-sm" role="status" aria-live="polite"></p>
+        <div class="mt-5 flex flex-col-reverse gap-2 sm:flex-row sm:justify-end">
+          <button type="button" id="cancelar-projeto" class="botao-secundario">Cancelar</button>
+          <button type="submit" id="salvar-projeto" class="botao-principal transition-all duration-200 ease-in-out active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-300 disabled:cursor-not-allowed disabled:opacity-50">Criar projeto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div id="aviso" class="fixed bottom-4 right-4 hidden rounded-lg bg-slate-900 px-4 py-3 text-sm text-white shadow-lg dark:bg-white dark:text-slate-900" role="status" aria-live="polite"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>

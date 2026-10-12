@@ -1,0 +1,97 @@
+/* Estilos complementares. O layout principal usa classes do Tailwind. */
+html { scroll-behavior: smooth; }
+body { font-family: Arial, Helvetica, sans-serif; }
+
+.link-menu {
+  display: block;
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: #64748b;
+  font-size: 14px;
+  transition: background-color .2s, color .2s;
+}
+.link-menu:hover { background: #f1f5f9; color: #1e293b; }
+.link-menu.selecionado { background: #dbeafe; color: #1d4ed8; font-weight: 600; }
+.dark .link-menu:hover { background: #1e293b; color: #f8fafc; }
+.dark .link-menu.selecionado { background: #1e3a8a; color: #dbeafe; }
+
+.botao-principal, .botao-secundario {
+  border-radius: 7px;
+  padding: 9px 13px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background-color .2s, transform .1s;
+}
+.botao-principal { background: #2563eb; color: white; }
+.botao-principal:hover { background: #1d4ed8; }
+.botao-principal:active, .botao-secundario:active { transform: scale(.98); }
+.botao-principal:disabled { cursor: not-allowed; opacity: .6; }
+.botao-secundario { border: 1px solid #cbd5e1; background: white; }
+.botao-secundario:hover { background: #f1f5f9; }
+.dark .botao-secundario { border-color: #475569; background: #0f172a; }
+.dark .botao-secundario:hover { background: #1e293b; }
+.botao-principal:focus-visible, .botao-secundario:focus-visible, button:focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; }
+
+.campo-pesquisa, .campo-formulario {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  background: white;
+  padding: 9px 11px;
+  font-size: 14px;
+  outline: none;
+}
+.campo-pesquisa { width: 230px; }
+.campo-pesquisa:focus, .campo-formulario:focus { border-color: #2563eb; box-shadow: 0 0 0 2px #bfdbfe; }
+.dark .campo-pesquisa, .dark .campo-formulario { border-color: #475569; background: #0f172a; color: #f1f5f9; }
+.dark .campo-pesquisa:focus, .dark .campo-formulario:focus { box-shadow: 0 0 0 2px #1d4ed8; }
+.campo-formulario.invalido { border-color: #dc2626; background: #fef2f2; }
+.dark .campo-formulario.invalido { border-color: #f87171; background: #451a1a; }
+.rotulo { display: block; margin-bottom: 6px; font-size: 14px; font-weight: 600; }
+.mensagem-erro { margin-top: 4px; color: #dc2626; font-size: 12px; }
+.dark .mensagem-erro { color: #fca5a5; }
+
+.cartao-indicador, .cartao-projeto {
+  border: 1px solid #e2e8f0;
+  border-radius: 9px;
+  background: white;
+  padding: 18px;
+  transition: box-shadow .2s, border-color .2s;
+}
+.cartao-indicador:hover, .cartao-projeto:hover { border-color: #bfdbfe; box-shadow: 0 3px 12px rgb(15 23 42 / 7%); }
+.dark .cartao-indicador, .dark .cartao-projeto { border-color: #334155; background: #0f172a; }
+.dark .cartao-indicador:hover, .dark .cartao-projeto:hover { border-color: #3b82f6; }
+.texto-indicador { color: #64748b; font-size: 14px; }
+.dark .texto-indicador, .dark .texto-pequeno { color: #94a3b8; }
+.numero-indicador { margin-top: 9px; font-size: 30px; font-weight: 700; }
+.texto-pequeno { color: #64748b; font-size: 12px; }
+.etiqueta { display: inline-block; border-radius: 5px; padding: 4px 7px; font-size: 11px; font-weight: 600; }
+.barra-progresso { height: 7px; margin-top: 8px; overflow: hidden; border-radius: 99px; background: #e2e8f0; }
+.barra-progresso span { display: block; height: 100%; border-radius: inherit; }
+.dark .barra-progresso { background: #334155; }
+.opcoes-projeto { border-radius: 5px; padding: 2px 7px; color: #64748b; }
+.opcoes-projeto:hover { background: #f1f5f9; }
+.dark .opcoes-projeto:hover { background: #1e293b; }
+
+.botao-filtro { border: 1px solid #cbd5e1; border-radius: 6px; padding: 7px 10px; color: #475569; font-size: 12px; }
+.botao-filtro:hover { background: #f1f5f9; }
+.botao-filtro.ativo { border-color: #2563eb; background: #2563eb; color: white; }
+.dark .botao-filtro { border-color: #475569; color: #cbd5e1; }
+.dark .botao-filtro:hover { background: #1e293b; }
+.dark .botao-filtro.ativo { border-color: #2563eb; background: #2563eb; color: white; }
+
+.menu-dropdown { position: absolute; right: 0; top: calc(100% + 6px); z-index: 25; width: 150px; border: 1px solid #e2e8f0; border-radius: 7px; background: white; padding: 5px; box-shadow: 0 5px 15px rgb(15 23 42 / 10%); }
+.dark .menu-dropdown { border-color: #334155; background: #0f172a; }
+.opcao-tema { display: block; width: 100%; border-radius: 5px; padding: 8px; text-align: left; font-size: 13px; }
+.opcao-tema:hover { background: #f1f5f9; }
+.dark .opcao-tema:hover { background: #1e293b; }
+
+/* O estado group-hover é aplicado ao título quando o card recebe hover. */
+.cartao-projeto h3 { transition: color .2s; }
+.cartao-projeto:hover h3 { color: #2563eb; }
+.dark .cartao-projeto:hover h3 { color: #93c5fd; }
+
+#modal-projeto.aberto { display: flex; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
