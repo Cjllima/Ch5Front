@@ -273,7 +273,6 @@ document.addEventListener("DOMContentLoaded", function () {
     categoriaTexto.className = "mt-2 text-xs text-slate-500 dark:text-slate-400";
     categoriaTexto.textContent = "Categoria: " + categoria;
 
-    // Linha que mostra o percentual de progresso
     const areaProgresso = document.createElement("div");
     areaProgresso.className = "mt-5 flex items-center justify-between text-sm";
 
@@ -286,7 +285,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     areaProgresso.append(rotuloProgresso, porcentagemProgresso);
 
-    // Barra de progresso, inicialmente vazia
     const barraProgresso = document.createElement("div");
     barraProgresso.className = "barra-progresso";
 
@@ -295,7 +293,6 @@ document.addEventListener("DOMContentLoaded", function () {
     preenchimentoProgresso.style.width = "0%";
 
     barraProgresso.append(preenchimentoProgresso);
-
 
     const rodape = document.createElement("p");
     rodape.className = "mt-4 border-t border-slate-200 pt-3 text-xs text-slate-500 dark:border-slate-700 dark:text-slate-400";
